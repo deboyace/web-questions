@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Discussion Questions</h2>
+
+<button onclick="generateQuestion()">Generate Question</button>
+
+<p id="question" style="color:blue; font-size:20px;"></p>
+
+<h2>Asked Questions:</h2>
+<div id="asked-questions"></div>
+
+<script>
+// array of questions
+var questions = [
+  "How could your district introduce AI literacy to its curriculum?",
+  "What specific steps could be taken to enhance AI understanding among teachers in your district?",
+  "How might your district address the potential risks of AI, such as misinformation or unethical use?",
+  "What resources could your district provide to teachers who are eager to learn more about AI, like the teacher mentioned in the article?",
+  "How could your district support teachers in using AI tools responsibly in the classroom?",
+  "How might your district handle the rapid evolution of AI technology, ensuring that the curriculum stays up-to-date?",
+  "What kind of professional development programs about AI could your district implement for teachers?",
+  "How can the district encourage ethical use of AI among students and staff?",
+  "How could the district integrate AI concepts across different subjects, not just in technology or computer science classes?",
+  "How could your district respond to AI technologies that have been controversial, like ChatGPT, in terms of use in classrooms?",
+  "How could your district prepare students to become smart AI designers and consumers?",
+  "What community partnerships could be formed to support AI education in your district?",
+  "How could your district support teachers in applying AI in practical, real-world contexts within the classroom?",
+  "What steps can your district take to keep parents informed about how AI is being used in classrooms?",
+  "How could your district measure the effectiveness of AI education and adjust strategies based on feedback and results?",
+  "What are some potential challenges your district might face in implementing AI in the classroom and how could these be addressed?",
+  "In what ways could AI enhance the existing teaching and learning practices in your district?",
+  "How would you communicate the importance of AI literacy to the wider school community, including parents and caregivers?",
+  "How could your district prepare for potential policy changes or guidelines around AI usage in schools?"
+];
+
+function generateQuestion() {
+  // check if there are still questions left
+  if (questions.length == 0) {
+    document.getElementById("question").innerHTML = "No more questions.";
+    return;
+  }
+
+  // pick a random index
+  var index = Math.floor(Math.random() * questions.length);
+  
+  // get the question at that index
+  var question = questions[index];
+  
+  // remove the chosen question from the array
+  questions.splice(index, 1);
+  
+  // display the question
+  document.getElementById("question").innerHTML = question;
+
+  // add the question to the asked questions list
+  var para = document.createElement("P");
+  var t = document.createTextNode(question);
+  para.appendChild(t);
+  document.getElementById("asked-questions").appendChild(para);
+}
+</script>
+
+</body>
+</html>
